@@ -4,6 +4,7 @@ import Sobre from "../pages/Sobre";
 import Contato from "../pages/Contato";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Feather from 'react-native-vector-icons/Feather'
+import StackRoutes from "./stackRoutes";
 
 const Tab = createBottomTabNavigator()
 
@@ -16,8 +17,8 @@ export default function Routes(){
       }}}
       >
         <Tab.Screen 
-        name="Home"
-        component={Home}
+        name="HomeStack"
+        component={StackRoutes}
         options={{
           tabBarIcon:({color, size}) =>{
             return <Feather name="home" color={color} size={size}/>
