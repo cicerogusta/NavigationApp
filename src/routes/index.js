@@ -2,54 +2,41 @@ import React from "react";
 import Home from "../pages/Home";
 import Sobre from "../pages/Sobre";
 import Contato from "../pages/Contato";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Feather from 'react-native-vector-icons/Feather'
 import StackRoutes from "./stackRoutes";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
-const Tab = createBottomTabNavigator()
+const Drawer = createDrawerNavigator()
 
 export default function Routes(){
   return(
-      <Tab.Navigator
-      screenOptions={{headerShown:false, tabBarHideOnKeyboard:true, tabBarShowLabel:false, tabBarActiveTintColor:'#FF0000', tabBarStyle:{
-        backgroundColor:'#202225',
-        borderTopWidth:0
-      }}}
-      >
-        <Tab.Screen 
+      <Drawer.Navigator
+      screenOptions={{
+        headerShown:false,
+        drawerStyle:{
+          backgroundColor:'#121212'
+        },
+        drawerActiveBackgroundColor:'#3B3DBF',
+        drawerActiveTintColor:'#FFF',
+        drawerInactiveBackgroundColor:'#CCC',
+        drawerInactiveTintColor:'#000'
+      }}>
+        
+        <Drawer.Screen 
         name="HomeStack"
         component={StackRoutes}
-        options={{
-          tabBarIcon:({color, size}) =>{
-            return <Feather name="home" color={color} size={size}/>
-
-          }
-        }}
         />
 
-        <Tab.Screen 
+        <Drawer.Screen 
         name="Sobre"
         component={Sobre}
-        options={{
-          tabBarIcon:({color, size}) =>{
-            return <Feather name="file-text" color={color} size={size}/>
-
-          }
-        }}
         />
 
-        <Tab.Screen 
+        <Drawer.Screen 
         name="Contato"
         component={Contato}
-        options={{
-          tabBarIcon:({color, size}) =>{
-            return <Feather name="phone-call" color={color} size={size}/>
-
-          },
-          headerShown:false
-        }}
         />
-      </Tab.Navigator>
+      </Drawer.Navigator>
 
      
   )
