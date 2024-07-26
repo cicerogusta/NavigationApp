@@ -5,26 +5,31 @@ import Contato from "../pages/Contato";
 import Feather from 'react-native-vector-icons/Feather'
 import StackRoutes from "./stackRoutes";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import CustomDrawer from "../components/CustomDrawer";
 
 const Drawer = createDrawerNavigator()
 
 export default function Routes(){
   return(
       <Drawer.Navigator
+      drawerContent={CustomDrawer}
       screenOptions={{
         headerShown:false,
-        drawerStyle:{
-          backgroundColor:'#121212'
-        },
-        drawerActiveBackgroundColor:'#3B3DBF',
+        drawerActiveBackgroundColor:'#00dae4',
         drawerActiveTintColor:'#FFF',
-        drawerInactiveBackgroundColor:'#CCC',
+
+        drawerInactiveBackgroundColor:'#f1f1f1',
         drawerInactiveTintColor:'#000'
       }}>
         
         <Drawer.Screen 
         name="HomeStack"
         component={StackRoutes}
+        options={{
+          title:'Inicio'
+        
+
+        }}
         />
 
         <Drawer.Screen 
